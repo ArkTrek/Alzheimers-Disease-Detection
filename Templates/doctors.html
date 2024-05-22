@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctors for Alzheimer's Treatment</title>
+    <!-- Include Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-database.js"></script>
+    <!-- Your Firebase configuration -->
+   <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyArbRlxILgkfobdvccGRnbfRkF11DbHAZE",
+            authDomain: "alzheimerdetectionsystem.firebaseapp.com",
+            databaseURL: "https://alzheimerdetectionsystem-default-rtdb.firebaseio.com",
+            projectId: "alzheimerdetectionsystem",
+            storageBucket: "alzheimerdetectionsystem.appspot.com",
+            messagingSenderId: "983644403635",
+            appId: "1:983644403635:web:f325eeb95dc81f677bbdc6"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+   </script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleDoctor.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f2f2f2;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .add-delete-buttons {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        /* Style for modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        /* Style for form elements */
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"] {
+width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Doctors for Alzheimer's Treatment</h1>
+    <!-- Plus button for adding new doctors -->
+    <div class="add-delete-buttons">
+        <!-- Change the onclick event to open the modal -->
+        <button id="addDoctorBtn">Add Doctor</button>
+        <button onclick="location.href='/delete-doctor'">Delete Doctor</button>
+    </div>
+
+    <!-- Modal for adding doctors -->
+    <div id="addDoctorModal" class="modal">
+        <div class="modal-content">
+            <!-- Add your form for adding doctors here -->
+            <h2>Add Doctor</h2>
+            <form id="doctorForm" action="adddr()" method="POST">
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="text" name="specialization" placeholder="Specialization" required>
+                <input type="text" name="address" placeholder="Address" required>
+                <input type="text" name="phone" placeholder="Phone" required>
+                <input type="text" name="email" placeholder="E-Mail" required>
+                <button type="submit" onclick="adddr()">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="doctors-list">
+        {% for doctor in doctors %}
+        <div class="doctor">
+            <h2>{{ doctor.name }}</h2>
+            <p><strong>Address:</strong> {{ doctor.address }}</p>
+            <p><strong>Phone:</strong> {{ doctor.phone }}</p>
+            <p><strong>Email:</strong> {{ doctor.email }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById('addDoctorModal');
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("addDoctorBtn");
+
+        // When the user clicks on the button, open the modal
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Form submission handling
+        document.getElementById("doctorForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            // Here you can add JavaScript code to handle the form submission, such as sending the data to the server
+            // You may want to close the modal after successful submission
+            modal.style.display = "none";
+        });
+    </script>
+</body>
+</html>

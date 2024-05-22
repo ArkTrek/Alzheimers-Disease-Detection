@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MSME Test</title>
+  <link rel="stylesheet" href="{{ url_for('static',filename='css/styleMSME.css') }}">
+  <script>
+    function validateForm() 
+    {
+      var radioGroups = {};
+      var radios = document.getElementsByTagName('input');
+      for (var i = 0; i < radios.length; i++) 
+      {
+        if (radios[i].type === 'radio') 
+        {
+          if (!radioGroups[radios[i].name]) 
+          {
+            radioGroups[radios[i].name] = [];
+          }
+          radioGroups[radios[i].name].push(radios[i]);
+        }
+      }
+      for (var groupName in radioGroups) 
+      {
+        var group = radioGroups[groupName];
+        var checked = false;
+      for (var j = 0; j < group.length; j++)
+      {
+        if (group[j].checked)
+        {
+          checked = true;
+          break;
+        }
+      }
+      if (!checked) 
+      {
+        alert('Please answer all questions before submitting.');
+        return false;
+      }
+    }
+    return true;
+  }
+  </script>
+</head>
+<body>
+    <button class="back-button" onclick="goBack()">&#8592; </button>
+  <div class="container">
+    <form action="/submit" method="POST" onsubmit="return validateForm();">
+      <h1>MMSE TEST</h1>
+
+      <p>Question 1: How often do you experience memory lapses or forgetfulness? </p>
+      <input type="radio" name="q1" value="a"> a) Very Good
+      <input type="radio" name="q1" value="b"> b) Good
+      <input type="radio" name="q1" value="c"> c) Bad
+
+      <p>Question 2: Can you recall recent events or conversations easily? </p>
+      <input type="radio" name="q2" value="a"> a) Very Good
+      <input type="radio" name="q2" value="b"> b) Good
+      <input type="radio" name="q2" value="c"> c) bad
+
+      <p>Question 3: Do you often repeat questions or statements in conversations? </p>
+      <input type="radio" name="q3" value="a"> a) Very Good
+      <input type="radio" name="q3" value="b"> b) Good
+      <input type="radio" name="q3" value="c"> c) Average
+      <input type="radio" name="q3" value="d"> d) Bad
+
+      <p>Question 4: How often do you struggle to find the right words when speaking? </p>
+      <input type="radio" name="q4" value="a"> a) Very Good
+      <input type="radio" name="q4" value="b"> b) Good
+      <input type="radio" name="q4" value="c"> c) Bad
+
+      <p>Question 5: Can you remember familiar locations and routes easily? </p>
+      <input type="radio" name="q5" value="a"> a) Very Good
+      <input type="radio" name="q5" value="b"> b) Good
+      <input type="radio" name="q5" value="c"> c) Average
+      <input type="radio" name="q5" value="d"> d) Bad
+
+      <p>Question 6: Are you able to manage your finances and bills independently </p>
+
+      <input type="radio" name="q6" value="a"> a) Very Good
+      <input type="radio" name="q6" value="b"> b) Good
+      <input type="radio" name="q6" value="c"> c) Average
+      <input type="radio" name="q6" value="d"> d) Bad
+
+      <br>
+      <input type="submit" value="Evaluate"> <br><br>
+    </form>
+      </div>
+  <script>
+        function goBack() {
+            window.history.back();
+        }
+  </script>
+</body>
+</html>

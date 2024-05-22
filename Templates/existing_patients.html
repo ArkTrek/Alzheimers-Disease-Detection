@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Existing Patients</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styledashboard.css') }}">
+</head>
+<body>
+    <h1>Existing Patients</h1>
+
+    <div class="container">
+        <h2>Search Patients</h2>
+        <form action="/existing" method="GET">
+            <div class="form-field">
+                <input type="text" name="query" placeholder="Search by name or location">
+                <button class="btn-search" type="submit">Search</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="container">
+        <h2>Patient List</h2>
+        <table>
+            <tr>
+                <th>User ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Location</th>
+            </tr>
+            {% for user_id, user_data in users.items() %}
+            <tr>
+                <td>{{ user_id }}</td>
+                <td>{{ user_data.name }}</td>
+                <td>{{ user_data.age }}</td>
+                <td>{{ user_data.location }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

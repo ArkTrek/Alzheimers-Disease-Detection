@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/stylepatient.css') }}">
+    <title>Create New User</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Add New User</h2>
+        <form action="/dashboard?action=create" method="POST">
+            <div class="form-field">
+                <input type="text" name="name" placeholder="Name" required>
+            </div>
+            <div class="form-field">
+                <input type="number" name="age" placeholder="Age" required>
+            </div>
+            <div class="form-field">
+                <input type="text" name="location" placeholder="Location" required>
+            </div>
+            <div class="form-field">
+                <button class="btn" type="submit">Create User</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

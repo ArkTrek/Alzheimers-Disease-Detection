@@ -1,0 +1,65 @@
+/* Reset some default styles */
+body, h1, h2, p, ul, li, a {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: url("img/2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Arial', sans-serif;
+    background-color: #eaa788;
+
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Section Styles */
+section {
+    margin-bottom: 30px;
+}
+
+h1, h2 {
+    color: #1f1f1f;
+}
+
+p {
+    color: #262525;
+}
+
+/* Team Members List Styles */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+/* Link Styles */
+a {
+    color: #007bff;
+    text-decoration: none;
+    display: inline-block;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s;
+}
+
+a:hover {
+    border-color: #007bff;
+}
+
+.link {
+    font-weight: bold;
+    margin-top: 20px;
+    display: block;
+}
+
+/* Add more styles as needed */

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome, {{ username }}</title>
+</head>
+<body>
+    <h1>Welcome, {{ username }}</h1>
+    <h2>Your Details:</h2>
+    <p>User ID: {{ username }}</p>
+    <p>Name: {{ user_data.name }}</p>
+    <p>Age: {{ user_data.age }}</p>
+    <p>Location: {{ user_data.location }}</p>
+    <p>Admin: {{ "Yes" if user_data.admin == "1" else "No" }}</p>
+</body>
+</html>

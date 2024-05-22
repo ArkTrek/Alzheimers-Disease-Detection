@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+<style>
+        /* Style for the logout button */
+        .logout-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Logout</h1>
+        <button class="logout-button" onclick="location.href='/loginn'">Logout</button>
+
+        <h1 class="heading">our services</h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="image/icon-1.png" alt="">
+            <h3>MMSE TEST</h3>
+            <p>The Mini-Mental State Examination (MMSE) is a brief and widely used screening tool for assessing cognitive impairment and dementia in adults.</p>
+            <a href="/MSMETest" class="btn">Test</a>
+        </div>
+
+        <div class="box">
+            <img src="image/icon-2.png" alt="">
+            <h3>MRI SCAN</h3>
+            <p>An MRI scan is a medical imaging technique using magnets and radio waves to create detailed internal body images, aiding in diagnosis.</p>
+            <a href="/detectionPage" class="btn">Check</a>
+        </div>
+
+        <div class="box">
+            <img src="image/icon-3.png" alt="">
+            <h3>Doctors</h3>
+            <p>These are Doctor's We Recommend</p>
+            <a href="/doctors" class="btn">Check</a>
+        </div>
+
+        <div class="box">
+            <img src="image/icon-4.png" alt="">
+            <h3>TIPS</h3>
+            <p>Tips for Slowing the Growth of Alzheimer's Disease</p>
+            <a href="/tips" class="btn">read more</a>
+        </div>
+
+        <div class="box">
+            <img src="image/icon-4.png" alt="">
+            <h3>Patients</h3>
+            <p>List of Patient's</p>
+            <a href="/dashboard" class="btn">read more</a>
+        </div>
+
+
+        <div class="box">
+            <img src="image/icon-4.png" alt="">
+            <h3>About</h3>
+            <p>Expertly crafted by a dedicated team, this website seamlessly showcases Alzheimer's treatment specialists with user-friendly design.</p>
+            <a href="/about" class="btn">read more</a>
+        </div>
+
+
+
+
+    </div>
+
+</div>
+
+</body>
+</html>

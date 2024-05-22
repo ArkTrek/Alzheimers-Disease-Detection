@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styledashboard.css') }}">
+</head>
+<body>
+    <h1>Welcome, Admin!</h1>
+    <div class="container">
+        <h2>Actions</h2>
+        <div class="buttons">
+            <form action="/dashboard" method="GET">
+                <input type="hidden" name="action" value="existing">
+                <a href="/existing" class="btn">Existing Patients</a>
+            </form>
+            <form action="/dashboard" method="GET">
+                <input type="hidden" name="action" value="new">
+                <a href="/create_user" class="btn">Create Patient's</a>
+            </form>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Search Users</h2>
+        <form action="/dashboard" method="GET">
+            <input type="hidden" name="action" value="search">
+            <div class="form-field">
+                <input type="text" name="query" placeholder="Search by name or location" required>
+                <button class="btn-search" type="submit">Search</button>
+            </div>
+        </form>
+    </div>
+
+    {% if action == 'existing' %}
+    <div class="container">
+        <h2>User Data</h2>
+        <table>
+            <tr>
+                <th>User ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Location</th>
+                <th>Action</th>
+            </tr>
+            {% if users %}
+                {% for user_id, user_data in users.items() %}
+                <tr>
+                    <td>{{ user_id }}</td>
+                    <td>{{ user_data.name }}</td>
+                    <td>{{ user_data.age }}</td>
+                    <td>{{ user_data.location }}</td>
+                    <td>
+                        <form action="/dashboard/delete/{{ user_id }}" method="POST">
+                            <button class="btn-delete" type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="5">No existing users found.</td>
+                </tr>
+            {% endif %}
+        </table>
+    </div>
+    {% endif %}
+</body>
+</html>

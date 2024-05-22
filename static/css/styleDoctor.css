@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-image: url('img/background.jpg'); /* Add background image directly to body */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Keeps the background image fixed while scrolling */
+    background-blur: 5px; /* Apply blur effect directly to the background */
+    background-color: #f2f2f2; /* Fallback background color */
+    color: #333; /* Default text color */
+}
+
+h1 {
+    text-align: center;
+    color: #333; /* Dark gray text color */
+}
+
+.doctors-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.doctor {
+    border: 1px solid #ccc;
+    border-radius: 10px; /* Increase border radius for curved edges */
+    padding: 20px; /* Increase padding for spacing */
+    margin: 20px;
+    width: 300px;
+    background-color: #fff; /* White background color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+}
+
+.doctor h2 {
+    margin-top: 0;
+    font-size: 24px; /* Increase font size for doctor name */
+    color: #333; /* Dark gray text color */
+}
+
+p {
+    font-size: 16px; /* Adjust font size for other details */
+    color: #666; /* Medium gray text color */
+    margin: 10px 0; /* Add margin for spacing */
+}
+
+.add-delete-buttons button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px; /* Curved rectangular shape */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: #f0f0f0; /* Light color */
+}
+
+.add-delete-buttons button:hover {
+    background-color: #e0e0e0; /* Lighter color on hover */
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black background */
+}
+
+.modal-content {
+  background-color: transparent;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1);
+}

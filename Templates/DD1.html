@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="{{ url_for('static',filename='css/styleDoctor.css') }}">
+    <title>Doctor Database</title>
+</head>
+<body>
+    <h1>Doctor Database</h1>
+    <form id="doctorForm">
+        <input type="text" id="name" placeholder="Name">
+        <input type="text" id="specialization" placeholder="Specialization">
+        <input type="email" id="email" placeholder="Email">
+        <input type="tel" id="phone" placeholder="Phone">
+        <button type="submit">Add Doctor</button>
+    </form>
+
+    <div id="doctorList"></div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

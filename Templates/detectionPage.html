@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/styleDP.css') }}">
+</head>
+<body>
+    <div class="box">
+        <h1>Detection Page</h1>
+        <form action="/result" method="post" enctype="multipart/form-data">
+            <label for="patient_name">Patient Name:</label>
+            <input type="text" id="patient_name" name="patient_name" required><br><br>
+            <label for="patient_age">Age:</label>
+            <input type="number" id="patient_age" name="patient_age" required><br><br>
+            <input type="file" name="image"><br><br>
+            
+            <input type="submit" value="Run Detection Test">
+        </form>
+        {% if result %}
+            <br>
+            <img src="/static/css/img/result.jpg" alt="Result image">
+            <h2>Result: {{ result }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>

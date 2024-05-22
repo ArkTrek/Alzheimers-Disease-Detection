@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/stylelogin.css') }}">
+</head>
+<body>
+    <div id="bg"></div>
+    <form method="POST" action="/login">
+        <div class="form-field">
+            <input type="text" name="username" placeholder="Username" required>
+        </div>
+        <div class="form-field">
+            <input type="password" name="password" placeholder="Password" required>
+        </div>
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+        <div class="form-field">
+            <button class="btn" type="submit">Log in</button>
+        </div>
+    </form>
+    <br>
+    <!-- Link for admin login -->
+    <a href="/admin/login">Admin Login</a>
+    <a href="/forgot-password">Forgot Password?</a>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/styleDP.css') }}">
+</head>
+<body>
+    <div class="box">
+        <h1>Result Page</h1>
+        
+        {% if val == True %}
+            <br>
+            <img src="/static/css/img/result.jpg" alt="Result image">
+            <h2>Result: {{ result }}</h2>
+        {% endif %}
+        {% if val == False %}
+            <br>
+            <img src="/static/css/img/error.png" alt="Image Error">
+            <h2>Result: {{ result }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
