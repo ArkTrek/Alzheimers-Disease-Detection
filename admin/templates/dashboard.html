@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styledashboard.css') }}">
+</head>
+<body>
+    <h1>Welcome, Admin!</h1>
+    <div class="container">
+        <h2>Actions</h2>
+        <div class="buttons">
+            <form action="/dashboard" method="GET">
+                <input type="hidden" name="action" value="existing">
+                <button class="btn" type="submit">Existing User</button>
+            </form>
+            <form action="/dashboard" method="GET">
+                <input type="hidden" name="action" value="new">
+                <button class="btn" type="submit">Add New User</button>
+            </form>
+        </div>
+    </div>
+    
+    {% if action == 'new' %}
+    <div class="container">
+        <h2>Add New User</h2>
+        <form action="/dashboard?action=create" method="POST">
+            <div class="form-field">
+                <input type="text" name="name" placeholder="Name" required>
+            </div>
+            <div class="form-field">
+                <input type="number" name="age" placeholder="Age" required>
+            </div>
+            <div class="form-field">
+                <input type="text" name="location" placeholder="Location" required>
+            </div>
+            <div class="form-field">
+                <button class="btn" type="submit">Create User</button>
+            </div>
+        </form>
+    </div>
+    {% endif %}
+    
+    {% if action == 'existing' %}
+    {% if users %}
+    <div class="container">
+        <h2>User Data</h2>
+        <table>
+            <tr>
+                <th>User ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Location</th>
+                <th>Action</th>
+            </tr>
+            {% for user_id, user_data in users.items() %}
+            <tr>
+                <td>{{ user_id }}</td>
+                <td>{{ user_data.name }}</td>
+                <td>{{ user_data.age }}</td>
+                <td>{{ user_data.location }}</td>
+                <td>
+                    <form action="/dashboard?action=delete" method="POST">
+                        <input type="hidden" name="user_id" value="{{ user_id }}">
+                        <button class="btn-delete" type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {% endif %}
+    {% endif %}
+</body>
+</html>
