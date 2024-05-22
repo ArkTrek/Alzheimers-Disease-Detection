@@ -29,4 +29,4 @@ Contributions are welcome! If you have ideas for improvements or new features, p
 
 ## Contact 📧
 
-For any questions or inquiries, please contact [Arpit Ramesan](mailto:arpitramesan777@gmail.com).
+For any questions or inquiries, please contact [Arpit R](mailto:arpitramesan777@gmail.com).
