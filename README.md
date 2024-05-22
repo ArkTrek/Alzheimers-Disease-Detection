@@ -14,22 +14,18 @@ Alzheimer's disease is a neurodegenerative disorder that affects millions of peo
 
 ## Installation 💻
 
-1. Clone the repository: `git clone <repository-url>`
+1. Clone the repository: `git clone https://github.com/ArkTrek/Alzheimers-Disease-Detection.git`
 2. Install dependencies: `pip install -r requirements.txt`
 
 ## Usage 📋
 
 1. Prepare MRI scans in the appropriate format.
-2. Run the prediction script: `python predict.py <input-image>`
+2. Run the prediction script: `python app.py`
 3. View the prediction results.
 
 ## Contributing 🤝
 
 Contributions are welcome! If you have ideas for improvements or new features, please submit a pull request.
-
-## License 📝
-
-This project is licensed under the [MIT License](LICENSE).
 
 ## Contact 📧
 
